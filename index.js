@@ -9,4 +9,4 @@ app.use("/",managementRouter)
 // app.use("/mentor",managementRouter)
 // app.use("/student",managementRouter)
 
-app.listen(4200);
+app.listen(process.env.PORT || 4200);
