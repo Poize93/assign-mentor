@@ -1,8 +1,16 @@
 const { ObjectId } = require('mongodb')
 const mongo=require('../shared/connect')
 
+module.exports.getmentor= async(req,res,next)=>{
+    try{
+         var data= await mongo.selectedDB.collection('mentor').find({...req.body}).toArray();
+        res.send(data)
 
-
+    }catch(err){
+        console.log(err)
+        res.status(500).json(err)
+    }
+}
 
 module.exports.creatementor= async(req,res,next)=>{
     try{
